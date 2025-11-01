@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImg from "@/assets/profile.jpg";
 
@@ -50,6 +50,17 @@ const Hero = () => {
                 onClick={() => scrollToSection("contact")}
               >
                 Get in Touch
+              </Button>
+              <Button 
+                size="lg" 
+                variant="secondary"
+                className="bg-secondary hover:bg-secondary/80"
+                asChild
+              >
+                <a href="/cv.pdf" download="CV_Hasindu_Marasinghe.pdf">
+                  <Download className="w-5 h-5 mr-2" />
+                  Download CV
+                </a>
               </Button>
             </div>
             

@@ -3,6 +3,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import habitTrackerImg from "@/assets/projects/habit-tracker.jpg";
+import warehouseImg from "@/assets/projects/warehouse-app.jpg";
+import housePredictionImg from "@/assets/projects/house-prediction.jpg";
+import recipeFinderImg from "@/assets/projects/recipe-finder.jpg";
+import hospitalSystemImg from "@/assets/projects/hospital-system.jpg";
+import librarySystemImg from "@/assets/projects/library-system.jpg";
+import ecommerceImg from "@/assets/projects/ecommerce-app.jpg";
+import hotelSystemImg from "@/assets/projects/hotel-system.jpg";
+import secuvisionImg from "@/assets/projects/secuvision.jpg";
+import coffeeShopImg from "@/assets/projects/coffee-shop.jpg";
 
 interface Project {
   title: string;
@@ -11,6 +21,7 @@ interface Project {
   tags: string[];
   link?: string;
   repo?: string;
+  image: string;
 }
 
 const Projects = () => {
@@ -22,60 +33,70 @@ const Projects = () => {
       description: "AI-powered security surveillance system using computer vision for real-time threat detection and monitoring",
       stack: ["Python", "OpenCV", "Machine Learning"],
       tags: ["ai", "python"],
+      image: secuvisionImg,
     },
     {
       title: "E-Commerce Platform",
       description: "Full-featured online store with real-time inventory, shopping cart, and secure payment integration",
       stack: ["React", "Firebase", "Stripe"],
       tags: ["web", "react"],
+      image: ecommerceImg,
     },
     {
       title: "Hospital Management System",
       description: "Comprehensive healthcare platform managing patient records, appointments, and medical staff scheduling",
       stack: ["Java", "MySQL", "Swing"],
       tags: ["java", "database"],
+      image: hospitalSystemImg,
     },
     {
       title: "Recipe Finder",
       description: "Interactive web app to discover recipes based on available ingredients using external APIs",
       stack: ["React", "REST API", "Tailwind"],
       tags: ["web", "react"],
+      image: recipeFinderImg,
     },
     {
       title: "Hotel Management System",
       description: "Complete hotel booking and management solution with room reservations and billing",
       stack: ["PHP", "MySQL", "Bootstrap"],
       tags: ["web", "php"],
+      image: hotelSystemImg,
     },
     {
       title: "House Price Prediction",
       description: "Machine learning model predicting real estate prices based on location, size, and market trends",
       stack: ["Python", "Scikit-learn", "Pandas"],
       tags: ["ai", "python"],
+      image: housePredictionImg,
     },
     {
       title: "Warehouse Management",
       description: "Inventory tracking system with stock alerts, order processing, and supplier management",
       stack: ["PHP", "MySQL", "JavaScript"],
       tags: ["web", "php"],
+      image: warehouseImg,
     },
     {
       title: "Library Management System",
       description: "Digital library platform for book cataloging, member management, and lending operations",
       stack: ["C#", "SQL Server", "WPF"],
       tags: ["database", "desktop"],
+      image: librarySystemImg,
     },
     {
       title: "Habit Tracker",
       description: "Personal productivity tool to build and maintain daily habits with progress visualization",
       stack: ["HTML", "CSS", "JavaScript"],
       tags: ["web"],
+      image: habitTrackerImg,
     },
     {
       title: "Coffee Shop Website",
       description: "Modern responsive website for a local coffee shop with menu, location, and online ordering",
       stack: ["HTML", "CSS", "JavaScript"],
       tags: ["web"],
+      image: coffeeShopImg,
     },
   ];
 
@@ -121,9 +142,16 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <Card 
               key={project.title} 
-              className="card-glow bg-card border-border h-full flex flex-col"
+              className="card-glow bg-card border-border h-full flex flex-col overflow-hidden"
               style={{ animationDelay: `${index * 0.05}s` }}
             >
+              <div className="aspect-video w-full overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
               <CardHeader>
                 <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
                 <CardDescription className="text-base">

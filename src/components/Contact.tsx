@@ -27,9 +27,14 @@ const Contact = () => {
       return;
     }
 
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    window.location.href = `mailto:hasindu.marasinghe@example.com?subject=${subject}&body=${body}`;
+
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      title: "Opening Email Client",
+      description: "Your email client will open with the message pre-filled.",
     });
     
     setFormData({ name: "", email: "", message: "" });
@@ -102,7 +107,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:hasindu.marasinghe@example.com"
                   className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/70 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -110,7 +115,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-sm text-muted-foreground">your.email@example.com</p>
+                    <p className="text-sm text-muted-foreground">hasindu.marasinghe@example.com</p>
                   </div>
                 </a>
 
